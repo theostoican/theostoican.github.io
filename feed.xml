@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T11:10:02+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T11:12:19+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
 </subtitle><entry><title type="html">Naïve Bayes</title><link href="https://theostoican.github.io/blog/2020/naive-bayes/" rel="alternate" type="text/html" title="Naïve Bayes" /><published>2020-12-13T00:00:00+00:00</published><updated>2020-12-13T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2020/naive-bayes</id><content type="html" xml:base="https://theostoican.github.io/blog/2020/naive-bayes/"><![CDATA[<h1 id="requirements">Requirements</h1>
 <ul>
   <li>Deep understanding of Bayes’ rule</li>
@@ -32,28 +32,6 @@
 
 \[P(negative|text) = 1 - some\_prob\]
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th>Generative Models</th>
-      <th>Discriminative Models</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Flexibility</td>
-      <td>:x:</td>
-      <td>:white_check_mark:</td>
-    </tr>
-    <tr>
-      <td>Data generation</td>
-      <td>:white_check_mark:</td>
-      <td>:x:</td>
-    </tr>
-  </tbody>
-</table>
-
 <p>In this framework, we can make predictions about the document (is it positive or negative and how accurate our prediction is ?). Furthermore, the document is just a collection of word features, as we said in the <em>bag-of-words</em> assumption. More specifically, the probabilities from above can be decomposed as follows:</p>
 
 \[P(positive | text) = P(positive | word\_freq_1 , word\_freq_2, ...)\]
@@ -77,6 +55,14 @@
 </ul>
 
 <p>In a nutshell:</p>
+
+<center>
+
+|   |Generative Models|Discriminative Models|
+|---|---|---|
+|Flexibility|:x:|:white_check_mark:|
+|Data generation|:white_check_mark:|:x:|
+</center>
 
 <p>Now, for the sake of this problem, we assume that we want to make use of a generative model. Hence, according to the assumptions made by generative models in general, we will characterize our data by providing distributions for each class \(P(c)\) and distributions for \(P(f_i | c)\), where $f_i$ - one of the features that we’re using (as we saw before, we’re considering as features the occurrences of each of the words within the text - $f_i=word_freq_i$). So, given this distribution, we have essentially 2 goals (generally, in any ML problem):</p>
 <ul>

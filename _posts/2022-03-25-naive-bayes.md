@@ -78,7 +78,7 @@ Simply put, we can decompose the probability using Bayes' rule as follows:
 
 $$ P(positive | word\_freq_1 , word\_freq_2, ...) = \frac{P(word\_freq_1 , word\_freq_2, ... | positive) \cdot P(positive)}{P(word\_freq_1 , word\_freq_2, ...)} $$
 <br>
-Does this look familiar? If we have a look at the numerator, we see the similarity between those probabilities and the ones that define our generative model. We need some further processing on the first term - $$ P(positive | word\_freq_1 , word\_freq_2, ...) $$ - in order to get exactly what we need.
+Does this look familiar? If we have a look at the numerator, we see the similarity between those probabilities and the ones that define our generative model. We need some further processing on the first term - $$ P(positive | word\_freq_1, ...) $$ - in order to get exactly what we need.
 
 ### Naïve Bayes
 Let us have a look at the numerator from the Bayes' rule corresponding equation. We can identify ($$ P(positive) $$) from that equation. $$ P(positive | word\_freq_1 , word\_freq_2, ...) $$ looks also similar, but not identical. What can we do to make it identical? The answer is the *Naïve Bayes assumption*. In a nutshell, we assume independence between the features given the class. To realize why it is naïve, let us walk through the following example. Assume we have the next corpus of data:

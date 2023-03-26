@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Naïve Bayes"
-date: 2020-12-13
+date: 2023-03-26
 categories: naive-bayes nl
 ---
 
@@ -23,10 +23,13 @@ In NLP, we commonly refer to a *text* (which can contain a review, a novel, an e
 
 In order to use a Machine Learning model, one should obtain some features based on the respective text. What kind of features can one get? One intuitive way is to assume as features the frequency of the words present in the text. If word 'fabulous' is used 2 times in the text, one could think that the text is positive (unless 'fabulous' is used sarcastically). Hence, we can collect the numbers of occurrences of each word in the text and use them as features for a document. Therefore, by using this approach, we are discarding the sequential relationship between words in the text. This is commonly called the **bag-of-words** assumption - we are essentially discarding the sequential information and treat the text like a "bag" of randomly positioned words.
 
-<figure>
+<!-- <figure>
     <img src="{{ site.baseurl }}/img/bagofwords.png" alt='missing' />
     <figcaption align="center">© https://web.stanford.edu/~jurafsky/slp3/</figcaption>
-</figure>
+</figure> -->
+
+{% include figure.html path="assets/img/bagofwords.png" class="img-fluid rounded z-depth-1" %}
+© https://web.stanford.edu/~jurafsky/slp3/
 
 # Model
 
@@ -61,7 +64,7 @@ In a nutshell:
 
 
 |               |Generative Models | Discriminative Models|
-|:--------------|:----------------:|---------------------:|
+|:--------------|:-------------:|---------------------:|
 |Flexibility    |:x:               |:white_check_mark:    |
 |Data generation|:white_check_mark:|:x:                   |
 

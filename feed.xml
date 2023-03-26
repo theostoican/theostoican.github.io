@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T11:12:19+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T11:58:34+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
 </subtitle><entry><title type="html">Naïve Bayes</title><link href="https://theostoican.github.io/blog/2020/naive-bayes/" rel="alternate" type="text/html" title="Naïve Bayes" /><published>2020-12-13T00:00:00+00:00</published><updated>2020-12-13T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2020/naive-bayes</id><content type="html" xml:base="https://theostoican.github.io/blog/2020/naive-bayes/"><![CDATA[<h1 id="requirements">Requirements</h1>
 <ul>
   <li>Deep understanding of Bayes’ rule</li>
@@ -56,22 +56,39 @@
 
 <p>In a nutshell:</p>
 
-<center>
+<p><br />&lt;/br&gt;</p>
 
-|   |Generative Models|Discriminative Models|
-|---|---|---|
-|Flexibility|:x:|:white_check_mark:|
-|Data generation|:white_check_mark:|:x:|
-</center>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: center">Generative Models</th>
+      <th style="text-align: right">Discriminative Models</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Flexibility</td>
+      <td style="text-align: center">:x:</td>
+      <td style="text-align: right">:white_check_mark:</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Data generation</td>
+      <td style="text-align: center">:white_check_mark:</td>
+      <td style="text-align: right">:x:</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Now, for the sake of this problem, we assume that we want to make use of a generative model. Hence, according to the assumptions made by generative models in general, we will characterize our data by providing distributions for each class \(P(c)\) and distributions for \(P(f_i | c)\), where $f_i$ - one of the features that we’re using (as we saw before, we’re considering as features the occurrences of each of the words within the text - $f_i=word_freq_i$). So, given this distribution, we have essentially 2 goals (generally, in any ML problem):</p>
+<p><br />&lt;/br&gt;
+Now, for the sake of this problem, we assume that we want to make use of a generative model. Hence, according to the assumptions made by generative models in general, we will characterize our data by providing distributions for each class \(P(c)\) and distributions for \(P(f_i | c)\), where \(f_i\) - one of the features that we’re using (as we saw before, we’re considering as features the occurrences of each of the words within the text - \(f_i=word\_freq_i\)). So, given this distribution, we have essentially 2 goals (generally, in any ML problem):</p>
 <ul>
   <li>Training</li>
   <li>Inference</li>
 </ul>
 
 <h2 id="training">Training</h2>
-<p>On this issue, the first question one has in mind is, how can we reduce our probabilities from before (i.e. $P(positive | text) = P(positive | word_freq_1 , word_freq_2, …)$ ) to a combination of $P(c)$ and $P(f_i | c)$, since these last 2 represent how we actually define our generative model. The answer is, as the title of this post suggests, <strong>Bayes</strong>.</p>
+<p>On this issue, the first question one has in mind is, how can we reduce our probabilities from before (i.e. \(P(positive | text) = P(positive | word\_freq_1 , word\_freq_2, ...)\) ) to a combination of \(P(c)\) and \(P(f_i | c)\), since these last 2 represent how we actually define our generative model. The answer is, as the title of this post suggests, <strong>Bayes</strong>.</p>
 <h3 id="bayes-rule">Bayes’ rule</h3>
 <p>Simply put, we can decompose the probability using Bayes’ rule as follows:</p>
 
@@ -80,14 +97,14 @@
 <table>
   <tbody>
     <tr>
-      <td>Does this look familiar? If we have a look at the numerator, we see the similarity between those probabilities and the ones that define our generative model. We need some further processing on the first term - $P(positive</td>
-      <td>word_freq_1 , word_freq_2, …)$ - in order to get exactly what we need.</td>
+      <td>Does this look familiar? If we have a look at the numerator, we see the similarity between those probabilities and the ones that define our generative model. We need some further processing on the first term - $$ P(positive</td>
+      <td>word_freq_1 , word_freq_2, …) $$ - in order to get exactly what we need.</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="naïve-bayes">Naïve Bayes</h3>
-<p>Let us have a look at the numerator from the Bayes’ rule corresponding equation. We can identify ($P(positive)$) from that equation. $P(positive | word_freq_1 , word_freq_2, …)$ looks also similar, but not identical. What can we do to make it identical? The answer is the <em>Naïve Bayes assumption</em>. In a nutshell, we assume independence between the features given the class. To realize why it is naïve, let us walk through the following example. Assume we have the next corpus of data:</p>
+<p>Let us have a look at the numerator from the Bayes’ rule corresponding equation. We can identify (\(P(positive)\)) from that equation. \(P(positive | word\_freq_1 , word\_freq_2, ...)\) looks also similar, but not identical. What can we do to make it identical? The answer is the <em>Naïve Bayes assumption</em>. In a nutshell, we assume independence between the features given the class. To realize why it is naïve, let us walk through the following example. Assume we have the next corpus of data:</p>
 
 <ul>
   <li>
@@ -104,11 +121,11 @@
 <table>
   <tbody>
     <tr>
-      <td>If we consider the word <em>bad</em> and we compute the probability of its existence given the class, we would intuitively get: $P(bad</td>
-      <td>positive) = \frac{1}{3}$. However, if we consider the other features as well, we get a larger probability, i.e. $P(bad</td>
-      <td>positive, not, so) = 1$, which is essentially 100% chance of having the word <em>bad</em> in our document, since we have only such an example. So, as we can see, <em>bad</em> can have positive connotations given other features from the text. That’s the main reason why the assumption that $P(bad</td>
+      <td>If we consider the word <em>bad</em> and we compute the probability of its existence given the class, we would intuitively get: $$ P(bad</td>
+      <td>positive) = \frac{1}{3} \(. However, if we consider the other features as well, we get a larger probability, i.e.\) P(bad</td>
+      <td>positive, not, so) = 1 \(, which is essentially 100% chance of having the word *bad* in our document, since we have only such an example. So, as we can see, *bad* can have positive connotations given other features from the text. That's the main reason why the assumption that\) P(bad</td>
       <td>positive, not, so) = P(bad</td>
-      <td>positive)$ is called <em>naïve</em>.</td>
+      <td>positive) $$ is called <em>naïve</em>.</td>
     </tr>
   </tbody>
 </table>
@@ -117,6 +134,6 @@
 <p>Moving forward, we now have almost all the ingredients to predict the class of a certain document. Let us examine the Bayes’ rule equation to understand what is missing. After considering the naïve assumption, what we end up with is:
 \(P(positive | word\_freq_1 , word\_freq_2, ...) = \frac{P(word\_freq_1 | positive) \cdot P( word\_freq_2|positive) \cdot ... \cdot P(positive)}{P(word\_freq_1 , word\_freq_2, ...)}\)</p>
 
-<p>Essentially, at this point, assume we have learned the prior $P(positive)$ and the probabilities of the features $P(word_freq|class)$ that characterize our generative model. What we still need in order to predict the class of the text is the denominator from the equation from above $P(word_freq1, word_freq2, …)$. Since this is not normally easy to compute (we have to consider all possible combinations of all the features), we can simply drop it and consider only the numerator for the classification of the text. The consequence is that we do not have a probability distribution anymore (since we drop the denominator, which acts as a normalizing term), but the proportionality still holds, thus giving us the more likely class with the higher score.</p>
+<p>Essentially, at this point, assume we have learned the prior \(P(positive)\) and the probabilities of the features \(P(word\_freq|class)\) that characterize our generative model. What we still need in order to predict the class of the text is the denominator from the equation from above \(P(word\_freq1, word\_freq2, ...)\). Since this is not normally easy to compute (we have to consider all possible combinations of all the features), we can simply drop it and consider only the numerator for the classification of the text. The consequence is that we do not have a probability distribution anymore (since we drop the denominator, which acts as a normalizing term), but the proportionality still holds, thus giving us the more likely class with the higher score.</p>
 <h2 id="training-1">Training</h2>
 <p>Up until now, we have seen how to actually use our model to predict the class of a certain text. The way this normally works, as in any Machine Learning setup, we first obtain these probabilities via training and then try to perform inference. In order to obtain these probabilities, we need to get the parameters of the corresponding distributions, by using the training data in order to estimate them. For getting the right parameters, we can use various approaches, among which Maximum Likelihood Estimation, Maximum a Posteriori, or full Bayesian approaches by estimating the full posterior are all suitable choices.</p>]]></content><author><name></name></author><category term="naive-bayes" /><category term="nl" /><summary type="html"><![CDATA[Requirements Deep understanding of Bayes’ rule Machine Learning fundamentals (Maximum Likelihood Estimation, what inference, training mean)]]></summary></entry></feed>

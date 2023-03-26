@@ -86,7 +86,8 @@ Does this look familiar? If we have a look at the numerator, we see the similari
 
 Let us have a look at the numerator from the Bayes' rule corresponding equation.
 
-We can identify ($$ P(positive) $$) from that equation. $$ P(positive | word\_freq_1 , ...) $$ looks also similar, but not identical. What can we do to make it identical? The answer is the *Naïve Bayes assumption*. In a nutshell, we assume independence between the features given the class. To realize why it is naïve, let us walk through the following example. Assume we have the next corpus of data:
+We can identify - $$ P(positive) $$ - from that equation. 
+$$ P(positive | word\_freq_1 , ...) $$ looks also similar, but not identical. What can we do to make it identical? The answer is the *Naïve Bayes assumption*. In a nutshell, we assume independence between the features given the class. To realize why it is naïve, let us walk through the following example. Assume we have the next corpus of data:
 
 * _In my opinion, the movie is not so bad._ - <span style="color:green">positive</span>
 

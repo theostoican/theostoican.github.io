@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T12:49:28+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
-</subtitle><entry><title type="html">Naïve Bayes</title><link href="https://theostoican.github.io/blog/2020/naive-bayes/" rel="alternate" type="text/html" title="Naïve Bayes" /><published>2020-12-13T00:00:00+00:00</published><updated>2020-12-13T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2020/naive-bayes</id><content type="html" xml:base="https://theostoican.github.io/blog/2020/naive-bayes/"><![CDATA[<h1 id="requirements">Requirements</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T14:21:49+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
+</subtitle><entry><title type="html">Naïve Bayes</title><link href="https://theostoican.github.io/blog/2023/naive-bayes/" rel="alternate" type="text/html" title="Naïve Bayes" /><published>2023-03-26T00:00:00+00:00</published><updated>2023-03-26T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2023/naive-bayes</id><content type="html" xml:base="https://theostoican.github.io/blog/2023/naive-bayes/"><![CDATA[<h1 id="requirements">Requirements</h1>
 <ul>
   <li>Deep understanding of Bayes’ rule</li>
   <li>Machine Learning fundamentals (Maximum Likelihood Estimation, what inference, training mean)</li>
@@ -19,10 +19,28 @@
 
 <p>In order to use a Machine Learning model, one should obtain some features based on the respective text. What kind of features can one get? One intuitive way is to assume as features the frequency of the words present in the text. If word ‘fabulous’ is used 2 times in the text, one could think that the text is positive (unless ‘fabulous’ is used sarcastically). Hence, we can collect the numbers of occurrences of each word in the text and use them as features for a document. Therefore, by using this approach, we are discarding the sequential relationship between words in the text. This is commonly called the <strong>bag-of-words</strong> assumption - we are essentially discarding the sequential information and treat the text like a “bag” of randomly positioned words.</p>
 
-<figure>
-    <img src="/img/bagofwords.png" alt="missing" />
+<!-- <figure>
+    <img src="/img/bagofwords.png" alt='missing' />
     <figcaption align="center">© https://web.stanford.edu/~jurafsky/slp3/</figcaption>
+</figure> -->
+
+<figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/bagofwords-480.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/bagofwords-800.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/bagofwords-1400.webp" />
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/bagofwords.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+
+  </picture>
+
 </figure>
+
+<p>© https://web.stanford.edu/~jurafsky/slp3/</p>
 
 <h1 id="model">Model</h1>
 

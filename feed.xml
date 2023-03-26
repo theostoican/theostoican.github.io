@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T11:04:02+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T11:06:30+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
 </subtitle><entry><title type="html">Naïve Bayes</title><link href="https://theostoican.github.io/blog/2020/naive-bayes/" rel="alternate" type="text/html" title="Naïve Bayes" /><published>2020-12-13T00:00:00+00:00</published><updated>2020-12-13T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2020/naive-bayes</id><content type="html" xml:base="https://theostoican.github.io/blog/2020/naive-bayes/"><![CDATA[<h1 id="requirements">Requirements</h1>
 <ul>
   <li>Deep understanding of Bayes’ rule</li>
@@ -56,7 +56,29 @@
 
 <p>In a nutshell:</p>
 
-<p>Now, for the sake of this problem, we assume that we want to make use of a generative model. Hence, according to the assumptions made by generative models in general, we will characterize our data by providing distributions for each class $P(c)$ and distributions for $P(f_i | c)$, where $f_i$ - one of the features that we’re using (as we saw before, we’re considering as features the occurrences of each of the words within the text - $f_i=word_freq_i$). So, given this distribution, we have essentially 2 goals (generally, in any ML problem):</p>
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Generative Models</th>
+      <th>Discriminative Models</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Flexibility</td>
+      <td>:x:</td>
+      <td>:white_check_mark:</td>
+    </tr>
+    <tr>
+      <td>Data generation</td>
+      <td>:white_check_mark:</td>
+      <td>:x:</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Now, for the sake of this problem, we assume that we want to make use of a generative model. Hence, according to the assumptions made by generative models in general, we will characterize our data by providing distributions for each class \(P(c)\) and distributions for \(P(f_i | c)\), where $f_i$ - one of the features that we’re using (as we saw before, we’re considering as features the occurrences of each of the words within the text - $f_i=word_freq_i$). So, given this distribution, we have essentially 2 goals (generally, in any ML problem):</p>
 <ul>
   <li>Training</li>
   <li>Inference</li>

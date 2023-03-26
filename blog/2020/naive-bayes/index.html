@@ -159,11 +159,8 @@
 
 \[P(positive|text) = some\_prob\]
 
-<div align="center">
+\[P(negative|text) = 1 - some\_prob\]
 
-<img src="https://render.githubusercontent.com/render/math?math=P(negative%20%7C%20text)%20=%201%20-%20&lt;some%5C_prob&gt;%0A">
-
-</div>
 <p>In this framework, we can make predictions about the document (is it positive or negative and how accurate our prediction is ?). Furthermore, the document is just a collection of word features, as we said in the <em>bag-of-words</em> assumption. More specifically, the probabilities from above can be decomposed as follows:</p>
 
 \[P(positive | text) = P(positive | word\_freq_1 , word\_freq_2, ...)\]

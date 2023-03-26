@@ -57,7 +57,7 @@ As usual, there is a trade-off between these 2 types of models.
 
 In a nutshell:
 
-<br></br>
+<br>
 
 
 |               |Generative Models |Discriminative Models|
@@ -65,13 +65,14 @@ In a nutshell:
 |Flexibility    |:x:               |:white_check_mark:   |
 |Data generation|:white_check_mark:|:x:                  |
 
-<br></br>
+<br>
 Now, for the sake of this problem, we assume that we want to make use of a generative model. Hence, according to the assumptions made by generative models in general, we will characterize our data by providing distributions for each class $$ P(c) $$ and distributions for $$ P(f_i | c) $$, where $$ f_i $$ - one of the features that we're using (as we saw before, we're considering as features the occurrences of each of the words within the text - $$ f_i=word\_freq_i $$). So, given this distribution, we have essentially 2 goals (generally, in any ML problem):
+
 - Training
 - Inference
 
 ## Training
-On this issue, the first question one has in mind is, how can we reduce our probabilities from before (i.e. $$ P(positive | text) = P(positive | word\_freq_1 , word\_freq_2, ...) $$ ) to a combination of $$ P(c) $$ and $$ P(f_i | c) $$, since these last 2 represent how we actually define our generative model. The answer is, as the title of this post suggests, **Bayes**.
+On this issue, the first question one has in mind is, how can we reduce our probabilities from before (i.e. $$ P(positive | text) = P(positive | word\_freq_1 , word\_freq_2, ...) $$ ) to a combination of $$P(c)$$ and $$P(f_i | c)$$, since these last 2 represent how we actually define our generative model. The answer is, as the title of this post suggests, **Bayes**.
 ### Bayes' rule
 Simply put, we can decompose the probability using Bayes' rule as follows:
 

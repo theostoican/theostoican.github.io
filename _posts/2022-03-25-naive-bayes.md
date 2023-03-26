@@ -28,8 +28,10 @@ In order to use a Machine Learning model, one should obtain some features based 
     <figcaption align="center">© https://web.stanford.edu/~jurafsky/slp3/</figcaption>
 </figure> -->
 
+<div style="text-align: center;">
 {% include figure.html path="assets/img/bagofwords.png" class="img-fluid rounded z-depth-1" %}
 © https://web.stanford.edu/~jurafsky/slp3/
+</div>
 
 # Model
 

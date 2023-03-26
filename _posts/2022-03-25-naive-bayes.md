@@ -34,12 +34,8 @@ The next thing one should consider is what kind of modeling we can do now. Remem
 
 $$ P(positive|text) = some\_prob $$ 
 
-<div align="center">
+$$ P(negative|text) = 1 - some\_prob $$
 
-<img src="https://render.githubusercontent.com/render/math?math=P(negative | text) = 1 - <some\_prob>
-">
-
-</div>
 In this framework, we can make predictions about the document (is it positive or negative and how accurate our prediction is ?). Furthermore, the document is just a collection of word features, as we said in the *bag-of-words* assumption. More specifically, the probabilities from above can be decomposed as follows:
 
 $$P(positive | text) = P(positive | word\_freq_1 , word\_freq_2, ...)$$

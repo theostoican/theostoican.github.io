@@ -38,7 +38,7 @@ $$ P(negative|text) = 1 - some\_prob $$
 
 In this framework, we can make predictions about the document (is it positive or negative and how accurate our prediction is ?). Furthermore, the document is just a collection of word features, as we said in the *bag-of-words* assumption. More specifically, the probabilities from above can be decomposed as follows:
 
-$$P(positive | text) = P(positive | word\_freq_1 , word\_freq_2, ...)$$
+$$ P(positive | text) = P(positive | word\_freq_1 , word\_freq_2, ...) $$
 
 
 Now, given this probability distribution, how can we compute it?
@@ -57,10 +57,10 @@ As usual, there is a trade-off between these 2 types of models.
 
 In a nutshell:
 
-|                 | Generative Models  | Discriminative Models |
-| :-------------- | :----------------- | :-------------------: |
-| Flexibility     | :x:                |  :white_check_mark:   |
-| Data generation | :white_check_mark: |          :x:          |
+|   |Generative Models|Discriminative Models|
+|---|---|---|
+|Flexibility|:x:|:white_check_mark:|
+|Data generation|:white_check_mark:|:x:|
 
 Now, for the sake of this problem, we assume that we want to make use of a generative model. Hence, according to the assumptions made by generative models in general, we will characterize our data by providing distributions for each class $P(c)$ and distributions for $P(f_i | c)$, where $f_i$ - one of the features that we're using (as we saw before, we're considering as features the occurrences of each of the words within the text - $f_i=word\_freq_i$). So, given this distribution, we have essentially 2 goals (generally, in any ML problem):
 - Training

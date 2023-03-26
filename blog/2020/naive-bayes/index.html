@@ -185,28 +185,6 @@
 
 <p>In a nutshell:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th>Generative Models</th>
-      <th>Discriminative Models</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Flexibility</td>
-      <td><img class="emoji" title=":x:" alt=":x:" src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png" height="20" width="20"></td>
-      <td><img class="emoji" title=":white_check_mark:" alt=":white_check_mark:" src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png" height="20" width="20"></td>
-    </tr>
-    <tr>
-      <td>Data generation</td>
-      <td><img class="emoji" title=":white_check_mark:" alt=":white_check_mark:" src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png" height="20" width="20"></td>
-      <td><img class="emoji" title=":x:" alt=":x:" src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png" height="20" width="20"></td>
-    </tr>
-  </tbody>
-</table>
-
 <p>Now, for the sake of this problem, we assume that we want to make use of a generative model. Hence, according to the assumptions made by generative models in general, we will characterize our data by providing distributions for each class $P(c)$ and distributions for $P(f_i | c)$, where $f_i$ - one of the features that we’re using (as we saw before, we’re considering as features the occurrences of each of the words within the text - $f_i=word_freq_i$). So, given this distribution, we have essentially 2 goals (generally, in any ML problem):</p>
 <ul>
   <li>Training</li>

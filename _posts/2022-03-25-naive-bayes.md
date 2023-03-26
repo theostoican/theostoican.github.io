@@ -60,10 +60,10 @@ In a nutshell:
 <br>
 
 
-|               |Generative Models |Discriminative Models|
-|:--------------|:----------------:|--------------------:|
-|Flexibility    |:x:               |:white_check_mark:   |
-|Data generation|:white_check_mark:|:x:                  |
+|               |Generative Models | Discriminative Models|
+|:--------------|:----------------:|---------------------:|
+|Flexibility    |:x:               |:white_check_mark:    |
+|Data generation|:white_check_mark:|:x:                   |
 
 <br>
 Now, for the sake of this problem, we assume that we want to make use of a generative model. Hence, according to the assumptions made by generative models in general, we will characterize our data by providing distributions for each class $$ P(c) $$ and distributions for $$ P(f_i | c) $$, where $$ f_i $$ - one of the features that we're using (as we saw before, we're considering as features the occurrences of each of the words within the text - $$ f_i=word\_freq_i $$). So, given this distribution, we have essentially 2 goals (generally, in any ML problem):

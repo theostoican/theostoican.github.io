@@ -72,8 +72,10 @@ Now, for the sake of this problem, we assume that we want to make use of a gener
 - Inference
 
 ## Training
+
 On this issue, the first question one has in mind is, how can we reduce our probabilities from before (i.e. $$ P(positive | text) = P(positive | word\_freq_1 , word\_freq_2, ...) $$ ) to a combination of $$P(c)$$ and $$P(f_i | c)$$, since these last 2 represent how we actually define our generative model. The answer is, as the title of this post suggests, **Bayes**.
 ### Bayes' rule
+
 Simply put, we can decompose the probability using Bayes' rule as follows:
 
 $$ P(positive | word\_freq_1 , word\_freq_2, ...) = \frac{P(word\_freq_1 , word\_freq_2, ... | positive) \cdot P(positive)}{P(word\_freq_1 , word\_freq_2, ...)} $$
@@ -81,6 +83,7 @@ $$ P(positive | word\_freq_1 , word\_freq_2, ...) = \frac{P(word\_freq_1 , word\
 Does this look familiar? If we have a look at the numerator, we see the similarity between those probabilities and the ones that define our generative model. We need some further processing on the first term - $$ P(positive | word\_freq_1, ...) $$ - in order to get exactly what we need.
 
 ### Naïve Bayes
+
 Let us have a look at the numerator from the Bayes' rule corresponding equation. We can identify ($$ P(positive) $$) from that equation. $$ P(positive | word\_freq_1 , word\_freq_2, ...) $$ looks also similar, but not identical. What can we do to make it identical? The answer is the *Naïve Bayes assumption*. In a nutshell, we assume independence between the features given the class. To realize why it is naïve, let us walk through the following example. Assume we have the next corpus of data:
 
 * _In my opinion, the movie is not so bad._ - <span style="color:green">positive</span>
@@ -93,9 +96,11 @@ Let us have a look at the numerator from the Bayes' rule corresponding equation.
 If we consider the word *bad* and we compute the probability of its existence given the class, we would intuitively get: $$ P(bad|positive) = \frac{1}{3} $$. However, if we consider the other features as well, we get a larger probability, i.e. $$ P(bad|positive, not, so) = 1 $$, which is essentially 100% chance of having the word *bad* in our document, since we have only such an example. So, as we can see, *bad* can have positive connotations given other features from the text. That's the main reason why the assumption that $$ P(bad|positive, not, so) = P(bad|positive) $$ is called *naïve*.
 
 ## Inference
+
 Moving forward, we now have almost all the ingredients to predict the class of a certain document. Let us examine the Bayes' rule equation to understand what is missing. After considering the naïve assumption, what we end up with is:
 $$ P(positive | word\_freq_1 , word\_freq_2, ...) = \frac{P(word\_freq_1 | positive) \cdot P( word\_freq_2|positive) \cdot ... \cdot P(positive)}{P(word\_freq_1 , word\_freq_2, ...)} $$
 
 Essentially, at this point, assume we have learned the prior $$ P(positive) $$ and the probabilities of the features $$ P(word\_freq|class) $$ that characterize our generative model. What we still need in order to predict the class of the text is the denominator from the equation from above $$ P(word\_freq1, word\_freq2, ...) $$. Since this is not normally easy to compute (we have to consider all possible combinations of all the features), we can simply drop it and consider only the numerator for the classification of the text. The consequence is that we do not have a probability distribution anymore (since we drop the denominator, which acts as a normalizing term), but the proportionality still holds, thus giving us the more likely class with the higher score.
 ## Training
+
 Up until now, we have seen how to actually use our model to predict the class of a certain text. The way this normally works, as in any Machine Learning setup, we first obtain these probabilities via training and then try to perform inference. In order to obtain these probabilities, we need to get the parameters of the corresponding distributions, by using the training data in order to estimate them. For getting the right parameters, we can use various approaches, among which Maximum Likelihood Estimation, Maximum a Posteriori, or full Bayesian approaches by estimating the full posterior are all suitable choices.

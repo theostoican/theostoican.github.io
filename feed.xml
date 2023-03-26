@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T12:46:00+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T12:49:28+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
 </subtitle><entry><title type="html">Naïve Bayes</title><link href="https://theostoican.github.io/blog/2020/naive-bayes/" rel="alternate" type="text/html" title="Naïve Bayes" /><published>2020-12-13T00:00:00+00:00</published><updated>2020-12-13T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2020/naive-bayes</id><content type="html" xml:base="https://theostoican.github.io/blog/2020/naive-bayes/"><![CDATA[<h1 id="requirements">Requirements</h1>
 <ul>
   <li>Deep understanding of Bayes’ rule</li>
@@ -118,17 +118,10 @@ Does this look familiar? If we have a look at the numerator, we see the similari
   </li>
 </ul>
 
-<table>
-  <tbody>
-    <tr>
-      <td>If we consider the word <em>bad</em> and we compute the probability of its existence given the class, we would intuitively get: $$ P(bad</td>
-      <td>positive) = \frac{1}{3} \(. However, if we consider the other features as well, we get a larger probability, i.e.\) P(bad</td>
-      <td>positive, not, so) = 1 \(, which is essentially 100% chance of having the word *bad* in our document, since we have only such an example. So, as we can see, *bad* can have positive connotations given other features from the text. That's the main reason why the assumption that\) P(bad</td>
-      <td>positive, not, so) = P(bad</td>
-      <td>positive) $$ is called <em>naïve</em>.</td>
-    </tr>
-  </tbody>
-</table>
+<p>If we consider the word <em>bad</em> and we compute the probability of its existence given the class, we would intuitively get: \(P(bad|positive) = \frac{1}{3}\).
+However, if we consider the other features as well, we get a larger probability, i.e. \(P(bad|positive, not, so) = 1\), which is essentially 100% chance of having the word <em>bad</em> in our document, since we have only such an example.
+So, as we can see, <em>bad</em> can have positive connotations given other features from the text.
+That’s the main reason why the assumption that \(P(bad|positive, not, so) = P(bad|positive)\) is called <em>naïve</em>.</p>
 
 <h2 id="inference">Inference</h2>
 

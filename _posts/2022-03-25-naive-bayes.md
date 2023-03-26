@@ -77,7 +77,7 @@ On this issue, the first question one has in mind is, how can we reduce our prob
 Simply put, we can decompose the probability using Bayes' rule as follows:
 
 $$ P(positive | word\_freq_1 , word\_freq_2, ...) = \frac{P(word\_freq_1 , word\_freq_2, ... | positive) \cdot P(positive)}{P(word\_freq_1 , word\_freq_2, ...)} $$
-
+<br>
 Does this look familiar? If we have a look at the numerator, we see the similarity between those probabilities and the ones that define our generative model. We need some further processing on the first term - $$ P(positive | word\_freq_1 , word\_freq_2, ...) $$ - in order to get exactly what we need.
 
 ### Naïve Bayes

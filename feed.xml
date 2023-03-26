@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T12:14:49+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-26T12:41:06+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
 </subtitle><entry><title type="html">Naïve Bayes</title><link href="https://theostoican.github.io/blog/2020/naive-bayes/" rel="alternate" type="text/html" title="Naïve Bayes" /><published>2020-12-13T00:00:00+00:00</published><updated>2020-12-13T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2020/naive-bayes</id><content type="html" xml:base="https://theostoican.github.io/blog/2020/naive-bayes/"><![CDATA[<h1 id="requirements">Requirements</h1>
 <ul>
   <li>Deep understanding of Bayes’ rule</li>
@@ -105,7 +105,7 @@ Does this look familiar? If we have a look at the numerator, we see the similari
   <tbody>
     <tr>
       <td>Let us have a look at the numerator from the Bayes’ rule corresponding equation. We can identify (\(P(positive)\)) from that equation. $$ P(positive</td>
-      <td>word_freq_1 , word_freq_2, …) $$ looks also similar, but not identical. What can we do to make it identical? The answer is the <em>Naïve Bayes assumption</em>. In a nutshell, we assume independence between the features given the class. To realize why it is naïve, let us walk through the following example. Assume we have the next corpus of data:</td>
+      <td>word_freq_1 , …) $$ looks also similar, but not identical. What can we do to make it identical? The answer is the <em>Naïve Bayes assumption</em>. In a nutshell, we assume independence between the features given the class. To realize why it is naïve, let us walk through the following example. Assume we have the next corpus of data:</td>
     </tr>
   </tbody>
 </table>

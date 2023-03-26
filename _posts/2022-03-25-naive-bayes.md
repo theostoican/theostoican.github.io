@@ -96,7 +96,10 @@ $$ P(positive | word\_freq_1 , ...) $$ looks also similar, but not identical. Wh
 * _In my opinion, the movie is quite bad._ - <span style="color:red">negative</span>
 
 
-If we consider the word *bad* and we compute the probability of its existence given the class, we would intuitively get: $$ P(bad|positive) = \frac{1}{3} $$. However, if we consider the other features as well, we get a larger probability, i.e. $$ P(bad|positive, not, so) = 1 $$, which is essentially 100% chance of having the word *bad* in our document, since we have only such an example. So, as we can see, *bad* can have positive connotations given other features from the text. That's the main reason why the assumption that $$ P(bad|positive, not, so) = P(bad|positive) $$ is called *naïve*.
+If we consider the word *bad* and we compute the probability of its existence given the class, we would intuitively get: $$ P(bad|positive) = \frac{1}{3} $$.
+However, if we consider the other features as well, we get a larger probability, i.e. $$ P(bad|positive, not, so) = 1 $$, which is essentially 100% chance of having the word *bad* in our document, since we have only such an example.
+So, as we can see, *bad* can have positive connotations given other features from the text.
+That's the main reason why the assumption that $$ P(bad|positive, not, so) = P(bad|positive) $$ is called *naïve*.
 
 ## Inference
 

@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>2022 | Theodor  Stoican</title>
+    <title>PCA | Theodor  Stoican</title>
     <meta name="author" content="Theodor  Stoican">
     <meta name="description" content="A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
 ">
@@ -34,7 +34,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://theostoican.github.io/blog/2022/">
+    <link rel="canonical" href="https://theostoican.github.io/blog/2023/pca/">
     
     <!-- Dark Mode -->
     
@@ -108,27 +108,72 @@
 
     <!-- Content -->
     <div class="container mt-5">
-      <div class="post">
+      <!-- _layouts/post.html -->
+
+<div class="post">
 
   <header class="post-header">
-    <h1 class="post-title"> <i class="fas fa-calendar fa-sm"></i> 2022 </h1>
-    <p class="post-description"> an archive of posts from this year </p>
+    <h1 class="post-title">PCA</h1>
+    <p class="post-meta">April 6, 2023</p>
+    <p class="post-tags">
+      <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
+        ·  
+        <a href="/blog/category/pca">
+          <i class="fas fa-tag fa-sm"></i> pca</a>  
+          <a href="/blog/category/basic-ml">
+          <i class="fas fa-tag fa-sm"></i> basic-ml</a>  
+          
+
+    </p>
   </header>
 
-  <article>
-    <div class="table-responsive">
-      <table class="table table-sm table-borderless">
-        
-        <tr>
-          <th scope="row">Apr 6, 2022</th>
-          <td>
-              <a class="post-link" href="/blog/2022/pca/">Pca</a>
-          </td>
-        </tr>
-      
-      </table>
-    </div>
+  <article class="post-content">
+    <h1 id="introduction">Introduction</h1>
+
+<p>In machine learning, working in high-dimensional spaces is often either computationally intractable or does not yield good practical results. Firstly, the curse of dimensionality (which helds that the more features/dimensions a data sample has, the more samples we need in order to accurately model the distribution of the data) compels us to find more data, thus making training and inference prohibitively expensive. Secondly, it is often the case that information in real-world data is embedded in only a few dimensions. Having more dimensions raises modelling issues by complicating the problem and leading to a lack of generalization. Thus, one may often want to perform <em>dimensionality reduction</em> before modelling, in order to capture the most essential features of the input data. Enter PCA.</p>
+
+<h1 id="pca---intuition">PCA - intuition</h1>
+
+<p>PCA is an algorithm that tries to identify the most import dimensions of the input data (principal components) and remove the unnecessary ones. But how does PCA identify the unnecessary dimensions? For that, let us have a look at the following image.</p>
+
+<div style="text-align: center;">
+<figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/pca/pca_2_dim_data-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/pca/pca_2_dim_data-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/pca/pca_2_dim_data-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/pca/pca_2_dim_data.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+© https://web.stanford.edu/~jurafsky/slp3/
+</div>
+
   </article>
+
+
+  
+    
+    <br>
+    <hr>
+    <br>
+    <ul class="list-disc pl-8"></ul>
+
+    <!-- Adds related posts to the end of an article -->
+    <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
+    <p class="mb-2">Here are some more articles you might like to read next:</p>
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/naive-bayes/">Naïve Bayes</a>
+  </li>
 
 </div>
 

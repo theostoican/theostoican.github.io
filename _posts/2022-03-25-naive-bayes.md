@@ -2,7 +2,7 @@
 layout: post
 title: "Naïve Bayes"
 date: 2023-03-26
-categories: naive-bayes nl
+categories: naive-bayes basic-ml
 ---
 
 # Requirements

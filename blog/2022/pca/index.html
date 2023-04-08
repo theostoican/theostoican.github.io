@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<ul>
+  <li>intro to dimensionality reduction</li>
+  <li>intuition</li>
+  <li>
+</li>
+</ul>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In machine learning, working in high-dimensional spaces is often either computationally intractable or does not yield good practical results. Firstly, the curse of dimensionality (which helds that the more features/dimensions a data sample has, the more samples we need in order to accurately model the distribution of the data) compels us to find more data, thus making training and inference prohibitively expensive. Secondly, it is often the case that information in real-world data is embedded in only a few dimensions. Having more dimensions raises modelling issues by complicating the problem and leading to a lack of generalization. Thus, one may often want to perform <em>dimensionality reduction</em> before modelling, in order to capture the most essential features of the input data. Enter PCA.</p>
+
+<h1 id="pca---intuition">PCA - intuition</h1>
+
+<p>PCA is an algorithm that tries to identify the most import dimensions of the input data (principal components) and remove the unnecessary ones. But how does PCA identify the unnecessary dimensions? For that, let us have a look at the following image.</p>
+
+<div style="text-align: center;">
+<figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/pca/pca_2_dim_data-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/pca/pca_2_dim_data-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/pca/pca_2_dim_data-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/pca/pca_2_dim_data.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+© https://web.stanford.edu/~jurafsky/slp3/
+</div>
+</body></html>

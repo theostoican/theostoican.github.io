@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-08T11:30:58+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-08T14:04:13+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
 </subtitle><entry><title type="html">PCA</title><link href="https://theostoican.github.io/blog/2023/pca/" rel="alternate" type="text/html" title="PCA" /><published>2023-04-06T00:00:00+00:00</published><updated>2023-04-06T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2023/pca</id><content type="html" xml:base="https://theostoican.github.io/blog/2023/pca/"><![CDATA[<h1 id="introduction">Introduction</h1>
 
-<p>In machine learning, working in high-dimensional spaces is often either computationally intractable or does not yield good practical results. Firstly, the curse of dimensionality (which helds that the more features/dimensions a data sample has, the more samples we need in order to accurately model the distribution of the data) compels us to find more data, thus making training and inference prohibitively expensive. Secondly, it is often the case that information in real-world data is embedded in only a few dimensions. Having more dimensions raises modelling issues by complicating the problem and leading to a lack of generalization. Thus, one may often want to perform <em>dimensionality reduction</em> before modelling, in order to capture the most essential features of the input data. Enter PCA.</p>
+<p>In machine learning, working in high-dimensional spaces is often either computationally intractable or does not yield good practical results. Firstly, the curse of dimensionality (which helds that the more features/dimensions a data sample has, the more samples we need in order to accurately model the distribution of the data) compels us to find more data, thus making training and inference prohibitively expensive. Secondly, it is often the case that information in real-world data is embedded in only a few dimensions. Having more dimensions raises modeling issues by complicating the problem and leading to a lack of generalization. Thus, one may often want to perform <em>dimensionality reduction</em> before modeling, in order to capture the most essential features of the input data. Enter PCA.</p>
 
 <h1 id="pca---intuition">PCA - intuition</h1>
 
@@ -24,8 +24,52 @@
 
 </figure>
 
-© https://web.stanford.edu/~jurafsky/slp3/
-</div>]]></content><author><name></name></author><category term="pca" /><category term="basic-ml" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Naïve Bayes</title><link href="https://theostoican.github.io/blog/2023/naive-bayes/" rel="alternate" type="text/html" title="Naïve Bayes" /><published>2023-03-26T00:00:00+00:00</published><updated>2023-03-26T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2023/naive-bayes</id><content type="html" xml:base="https://theostoican.github.io/blog/2023/naive-bayes/"><![CDATA[<h1 id="requirements">Requirements</h1>
+An example of two-dimensional data that is negatively correlated (whenever x increases, y decreases) in its raw form.
+</div>
+
+<p>Were we to look at the data from the perspective of the 2 coordinates individually, we would be tempted to assume that each corresponding dimension contains a substantial amount of data and is indispensable. However, were we to choose a
+different system of coordinates, we could see a disproportion insofar as the quantity of information might not as dispersed as we would think it is.</p>
+
+<div style="text-align: center;">
+<figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/pca/pca_2_dim_new_coord-480.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/pca/pca_2_dim_new_coord-800.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/pca/pca_2_dim_new_coord-1400.webp" />
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/pca/pca_2_dim_new_coord.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+
+  </picture>
+
+</figure>
+
+The same data as above, but represented using a different system of coordinates.
+</div>
+
+<p>If we look at the figure from above, we see that, across one of the axes the information is not as widely spread as in the first system of coordinates. What this means in practice is that we may want to get rid of this dimension for the sake of preserving the most relevant information for modeling and so perform some dimensionality reduction on the input data. Seemingly we have achieved our goal of reducing the dimensionality of the data, even though the data was initially not obviusly reducible. The question, however, of finding the appropiate system of coordinates in which one could perform dimensionality reduction remains open.</p>
+
+<h1 id="pca---in-detail">PCA - In Detail</h1>
+
+<p>Let us delve into the more intricate details of PCA in order to see how one could find the appropiate system of coordinates.</p>
+
+<h2 id="reducing-the-covariance-of-the-data">Reducing the Covariance of the Data</h2>
+
+<p>The tenet of finding such a system of coordinates is the covariance between the dimension of the input data. In the last image from above, we see that the input dimensions have a correlation of 0. Therefore, we can examine the spread of each of the dimensions individually and decide which ones do not contain critical information for modeling and thus can be removed. Ideally, we want to find such a decorrelated system of coordinates for any input data that we have. Fortunately, there is a theoretically sound way of finding it. But, to begin with, let us first look at the covariance of the input data.</p>
+
+<p>Let us assume, for the sake of generality, that we have a d-dimensional input data.</p>
+
+\[X = \begin{matrix}
+x_{11} &amp; \Ldots &amp; x_{1d}\\
+x_{21} &amp; \Ldots &amp; x_{2d}\\
+\Vdots &amp; \Ddots &amp; \Vdots\\
+x_{N1} &amp; \Ldots &amp; x_{Nd}
+\end{matrix}\]
+
+<h2 id="transforming-the-input">Transforming the Input</h2>]]></content><author><name></name></author><category term="pca" /><category term="basic-ml" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Naïve Bayes</title><link href="https://theostoican.github.io/blog/2023/naive-bayes/" rel="alternate" type="text/html" title="Naïve Bayes" /><published>2023-03-26T00:00:00+00:00</published><updated>2023-03-26T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2023/naive-bayes</id><content type="html" xml:base="https://theostoican.github.io/blog/2023/naive-bayes/"><![CDATA[<h1 id="requirements">Requirements</h1>
 <ul>
   <li>Deep understanding of Bayes’ rule</li>
   <li>Machine Learning fundamentals (Maximum Likelihood Estimation, what inference, training mean)</li>

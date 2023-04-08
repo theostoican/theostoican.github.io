@@ -66,7 +66,7 @@ In a nutshell:
 
 
 |               |Generative Models | Discriminative Models|
-|:--------------|:-------------:|---------------------:|
+|:--------------|:-------------:| --------------------:|
 |Flexibility    |:x:               |:white_check_mark:    |
 |Data generation|:white_check_mark:|:x:                   |
 

@@ -198,6 +198,46 @@ x_{21} &amp; \ldots &amp; x_{2d}\\
 x_{N1} &amp; \ldots &amp; x_{Nd}
 \end{array}\right]\]
 
+<p>The covariance matrix of $X$ would be a $D x D$ matrix of the form:</p>
+
+\[\Sigma_{X} =  \left[\begin{array}{ccc}
+Var(X_1) &amp; \ldots &amp; Cov(X_1, X_d)\\
+Cov(X_2, X_1) &amp; \ldots Cov(X_2, X_d)}\\
+\vdots &amp; \ddots &amp; \vdots\\
+Cov(X_d, x_1) &amp; \ldots &amp; Var(X_d)
+\end{array}\right]\]
+
+<p>As an observartion, this is a square and symmetric matrix. We know that real symmetric matrices are diagonizable and always admit a spectral decomposition. Hence, decomposing our matrix $\Sigma_{X}$ leads to:</p>
+
+\[\Sigma_{X} = \Gamma \cdot \Lambda \cdot \Gamma^T\]
+
+<p>In the decomposition, $\Lambda$ is a diagonal matrix, that has 0 as values for all elements besides the ones that reside on the diagonal. But this is exactly what we wished for before! A covariance matrix, where all the covariances between every two distinct dimensions are 0. Now, the question that remains is how do we transform our data such that it has this covariance? Well, we know that eigendecomposition finds a new vector space (where the eigenvectors form an orthonormal basis). One way would be to project the vectors in our original data matrix onto the newly found vector space. For that, multiplying with $\Gamma$ should suffice. Therefore, our new data would be:</p>
+
+\[X' = X \cdot \Gamma\]
+
+<p>The new data would have the covariance as found above: $\Lambda$. To make sure, let us redo the calculation. For simplification and without loss of generalization, let us consider a $2 x 2$ input matrix:</p>
+
+\[X = \left[\begin{array}{cc}
+X_{11} &amp; X_{12}\\
+X_{21} &amp; X_{22}
+\end{array}\right]\]
+
+<p>This can be rewritten as:</p>
+
+\[X = \left[\begin{array}{c}
+X^1\\
+X^2
+\end{array}\right]\]
+
+\[Y = X \cdot w =  \left[\begin{array}{cc}
+X^1w_1 &amp; X^1w_2 \\
+X^2w_1 &amp; X^2w_2
+\end{array}\right] = \left[\begin{array}{cc}
+Xw_1 &amp; Xw_2 
+\end{array}\right]\]
+
+\[\Sigma_{Y} = \Sigma_{X \cdot w} =\]
+
 <h2 id="transforming-the-input">Transforming the Input</h2>
 
   </article>

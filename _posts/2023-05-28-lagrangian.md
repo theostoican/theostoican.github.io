@@ -23,10 +23,9 @@ $ g_i(x) = 0 \forall i \in {1..n} $
 
 Let us assume we want to optimize $f(x)$ without any constraints. To do this, one naturally looks at the gradient. We can just enforce $\nabla f(x) = 0$ and we find the $x$ at which this holds (assuming the function is convex). With the constraints, however, this idea does not work anymore, since the minimum of $f(x)$ may not fulfil $g_i(x) = 0$ for some $i$. Geometrically, in order to visualize this, let us assume (without loss of generality) we have only one constraint.
 
+
 <div style="text-align: center;">
- class="img-fluid rounded z-depth-1" %}
-An example where the minimum of an objective function is not identical to the constrained minimum. Made with &copy; Desmos.
- class="img-fluid rounded z-depth-1" %}
+{% include figure.html path="assets/img/lagrangian/min_f_not_constrained_min.png" class="img-fluid w-50 rounded z-depth-1" %}
 An example where the minimum of an objective function is not identical to the constrained minimum. Made with &copy; Desmos.
 </div>
 

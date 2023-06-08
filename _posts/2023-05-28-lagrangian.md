@@ -24,14 +24,16 @@ $ g_i(x) = 0 \forall i \in {1..n} $
 Let us assume we want to optimize $f(x)$ without any constraints. To do this, one naturally looks at the gradient. We can just enforce $\nabla f(x) = 0$ and we find the $x$ at which this holds (assuming the function is convex). With the constraints, however, this idea does not work anymore, since the minimum of $f(x)$ may not fulfil $g_i(x) = 0$ for some $i$. Geometrically, in order to visualize this, let us assume (without loss of generality) we have only one constraint.
 
 <div style="text-align: center;">
-{% include figure.html path="assets/img/lagrangian/min_f_not_constrained_min.png" class="img-fluid rounded z-depth-1" %}
+ class="img-fluid rounded z-depth-1" %}
+An example where the minimum of an objective function is not identical to the constrained minimum. Made with &copy; Desmos.
+ class="img-fluid rounded z-depth-1" %}
 An example where the minimum of an objective function is not identical to the constrained minimum. Made with &copy; Desmos.
 </div>
 
 As we can see in the picture from above, the constrained minimum does not coincide with the minimum of $f$ and it is actually materialized at $x_{min} = (-0.63, 0.38)$. This is a bit to the left of the minimum of $f$. And, more importantly, $\nabla f(x_{min})$ is not $0$. To find this type of points analytically, Lagrange figured out that, instead of looking at where the gradient is 0, one should look instead at where the gradients of the constraint function and the objective function are parallel. This intuition is very revealing, due to the fact that the set of points among which we're searching our minimum must be the set of points on the constraint line. If we take a certain point on a line and there exists another point that leads to a better minimum on the same line, then the gradient of $f$ must point towards to it. Therefore, it cannot be perpendicular on the tangent line to the curve at this point. Meanwhile, the gradient of the constraint function is always perpendicular on the line (one can also visualize it as the normal vector of the line). Similarly, if there is no other point better than the current point, then the gradient of $f$ must be perpendicular on the tangent (there is no better minimum on the constraint line, but there is one potentially outside of it - however, we are not interested in it). But since this point is on the constraint line, the gradient of $g$ (the constraint function) must also be perpendicular on the constraint line (and on the tangent, by extension). Therefore, by ensuring that the two gradients are parallel, we are sure that there cannot be a more optimal point than this. This can be visualized as follows:
 
 <div style="text-align: center;">
-{% include figure.html path="assets/img/lagrangian/LagrangeMultipliers2D.png" class="img-fluid rounded z-depth-1 w-50" %}
+{% include figure.html path="assets/img/lagrangian/LagrangeMultipliers2D.png" w-50 class="img-fluid rounded z-depth-1 w-50" %}
 An example of Lagrange multipliers for 2D objective and constraints functions (&copy; https://en.wikipedia.org/wiki/Lagrange_multiplier).
 </div>
 
@@ -57,7 +59,7 @@ $g(x) \leq 0$
 In the equations, I have rewritten the constraint as $g(x) = 2 \cdot x - 1$. Let us have a look at the graph of these functions.
 
 <div style="text-align: center;">
-{% include figure.html path="assets/img/lagrangian/example_ineq_constaint.png" class="img-fluid rounded z-depth-1" %}
+{% include figure.html path="assets/img/lagrangian/example_ineq_constaint.png" class="img-fluid rounded w-50 z-depth-1" %}
 An example of optimization problem where the optimal solution is different for inequality constraints, compared to equality constraints. Made with &copy; Desmos.
 </div>
 
@@ -87,14 +89,14 @@ $g(x) = x+2 \lt 0$
 The chart of this function would be:
 
 <div style="text-align: center;">
-{% include figure.html path="assets/img/lagrangian/lagrangian_simple_problem.png" class="img-fluid rounded z-depth-1" %}
+{% include figure.html path="assets/img/lagrangian/lagrangian_simple_problem.png" class="img-fluid w-50 rounded z-depth-1" %}
 An example of optimization problem where we have a convex objective and one inequality constraint. Made with &copy; Desmos.
 </div>
 
 The optimum that we're interested in is at $x = -2$. Now, let us look at the dual function for certain values of $\lambda$.
 
 <div style="text-align: center;">
-{% include figure.html path="assets/img/lagrangian/lagrangian_multiple_lambda.png" class="img-fluid rounded z-depth-1" %}
+{% include figure.html path="assets/img/lagrangian/lagrangian_multiple_lambda.png" class="img-fluid w-50 rounded z-depth-1" %}
 The same problem from before, where we see the dual for multiple values of $\lambda$. Made with &copy; Desmos.
 </div>
 

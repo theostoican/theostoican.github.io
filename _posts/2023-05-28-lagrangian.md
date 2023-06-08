@@ -59,7 +59,7 @@ $g(x) \leq 0$
 In the equations, I have rewritten the constraint as $g(x) = 2 \cdot x - 1$. Let us have a look at the graph of these functions.
 
 <div style="text-align: center;">
-{% include figure.html path="assets/img/lagrangian/example_ineq_constaint.png" class="img-fluid rounded w-50 z-depth-1" %}
+{% include figure.html path="assets/img/lagrangian/example_ineq_constraint.png" class="img-fluid rounded w-50 z-depth-1" %}
 An example of optimization problem where the optimal solution is different for inequality constraints, compared to equality constraints. Made with &copy; Desmos.
 </div>
 

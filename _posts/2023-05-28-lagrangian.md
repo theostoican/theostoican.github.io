@@ -2,7 +2,7 @@
 layout: post
 title: "Lagrangian"
 date: 2022-05-28
-categories: Lagrangian multipliers and the Lagrangian basic-ml
+categories: Lagrangian basic-ml
 ---
 
 # Introduction

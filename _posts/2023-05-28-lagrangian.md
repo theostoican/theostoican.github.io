@@ -14,6 +14,7 @@ In machine learning, it is often the case that one ends up (after various modeli
 Let us assume we have a convex objective function $$ f(x) $$ that we want to optimize (in particular, we will talk about minimization, since any maximization problem can be reduced to a minimization problem). Furthermore, there are a couple of additional constraints that we may want to impose on the minimum that we find. For now we will just focus on affine and equality constraints, since the method that we are going to investigate offers guarantees only for this class of constraints. To sum up, the problem that we're looking at is of the form:
 
 $$ \min_{x \in Dom(f)} f(x) $$
+
 $$ g_i(x) = 0 \forall i \in {1..n} $$
 
 , where $$ f(x) $$ - convex and $$g_i(x)$$ - affine constraints.
@@ -48,11 +49,14 @@ $$\lambda$$ is a scalar that ensure that the vector gradients have the same dire
 
 # The Lagrangian
 
+Below we'll provide a justification and an intuition for the formulation of the Lagrangian.
+
 ## Justification
 
 Problems in practice can be even more complex than this. In particular, one can find optimization problems, for which the contraint functions can be inequalities. For these situations, an extension of the method would be required. To understand why, let us have a look at the following example. Assume we have an objective function $$f(x)=x^2$$ with one constraint $$2 \cdot x \leq 1$$ (without loss of generalization we treat these constraints; constraints of the type $$c(x) \geq a$$ can be reformulated into $$c'(x) \leq -a$$, where $$c'(x)=-c(x)$$), which can be rephrased as follows:
 
 $$f(x) = x^2$$
+
 $$g(x) \leq 0$$
 
 In the equations, I have rewritten the constraint as $$g(x) = 2 \cdot x - 1$$. Let us have a look at the graph of these functions.
@@ -61,6 +65,7 @@ In the equations, I have rewritten the constraint as $$g(x) = 2 \cdot x - 1$$. L
 {% include figure.html path="assets/img/lagrangian/example_ineq_constraint.png" class="img-fluid rounded w-50 z-depth-1" %}
 An example of optimization problem where the optimal solution is different for inequality constraints, compared to equality constraints. Made with &copy; Desmos.
 </div>
+
 
 If one looks at the chart from above, one sees that the minimum of the problem with an inequality constraint does not coincide with the minimum for the problem with an equality constraint. By imposing $$g(x) = 0$$, the method of Lagrange multipliers would find the minimum on the constraint line. However, that does not coincide with the real optimum, which is actually the same as the minimum of $$f(x)$$. For this reason, an adaptation of the method of Lagrange multipliers is required in order to make it work for inequality constraints.
 
@@ -78,7 +83,7 @@ Now, to solve this problem, one has to find a $$\lambda$$, which is big enough t
 
 Analytically, this can be phrased as finding $$\min_{x} f(x) + \lambda g(x)$$ for every possible $$\lambda$$ (which can be formulated as $$g(\lambda) = \min_{x} f(x) + \lambda g(x)$$) and then optimizing over $$\lambda$$, by finding $$\max_{\lambda} g(\lambda)$$. Optimizing $$g$$ is called, in literature, the dual problem. So, in a nutshell, finding the minimum under the constraints can be rephrased as:
 
-$$\max_{\lambda} \min{\x} L(x, \lambda)$$
+$$\max_{\lambda} \min_{x} L(x, \lambda)$$
 
 This also means finding the saddle point of the Lagrangian. To see why this works, let us look at an example. To keep things simple, we will look at an optimization problem with one inequality constraint only (without loss of generality):
 
@@ -92,11 +97,12 @@ The chart of this function would be:
 An example of optimization problem where we have a convex objective and one inequality constraint. Made with &copy; Desmos.
 </div>
 
+
 The optimum that we're interested in is at $$x = -2$$. Now, let us look at the dual function for certain values of $$\lambda$$.
 
 <div style="text-align: center;">
 {% include figure.html path="assets/img/lagrangian/lagrangian_multiple_lambda.png" class="img-fluid w-50 rounded z-depth-1" %}
-The same problem from before, where we see the dual for multiple values of $$\lambda$$. Made with &copy; Desmos.
+The same problem from before, where we see the dual for multiple values of lambda. Made with &copy; Desmos.
 </div>
 
 As one can see, the more we increase $$\lambda$$, the more the unconstrained minimum of $$f$$ (at $$x=0$$) is penalized. That is the reason why the constrained minimum ($$g(\lambda)$$) has to move to the left of the unconstrained minimum, so that it is closer to the constraint line. At the same time, the more we move to the left (up to a certain point as we will see), the larger the value of the constrained minimum (than the previous constrained minimum) is. This is due to the fact that we are in a regime where the first terms of $$g$$ is dominant ($$f(x)$$) and moving even slightly to the left entails moving farther from the unconstrained minimum of $$f$$ and thus having higher values for $$f(x)$$.

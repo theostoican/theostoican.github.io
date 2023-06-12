@@ -15,7 +15,7 @@ Let us assume we have a convex objective function $$ f(x) $$ that we want to opt
 
 $$ \min_{x \in Dom(f)} f(x) $$
 
-$$ g_i(x) = 0 \forall i \in {1..n} $$
+$$ g_i(x) = 0, \forall i \in {1..n} $$
 
 , where $$ f(x) $$ - convex and $$g_i(x)$$ - affine constraints.
 
@@ -88,6 +88,7 @@ $$\max_{\lambda} \min_{x} L(x, \lambda)$$
 This also means finding the saddle point of the Lagrangian. To see why this works, let us look at an example. To keep things simple, we will look at an optimization problem with one inequality constraint only (without loss of generality):
 
 $$\min_{x} f(x)$$
+
 $$g(x) = x+2 \lt 0$$
 
 The chart of this function would be:

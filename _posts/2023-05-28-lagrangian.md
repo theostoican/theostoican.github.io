@@ -36,7 +36,9 @@ As we can see in the picture from above, the constrained minimum does not coinci
 
 <div style="text-align: center;">
 {% include figure.html path="assets/img/lagrangian/LagrangeMultipliers2D.png" class="img-fluid rounded z-depth-1 w-50" %}
+<p align = "center">
 An example of Lagrange multipliers for 2D objective and constraints functions (&copy; https://en.wikipedia.org/wiki/Lagrange_multiplier).
+</p>
 </div>
 
 ## Formalism
@@ -65,7 +67,9 @@ In the equations, I have rewritten the constraint as $$g(x) = 2 \cdot x - 1$$. L
 
 <div style="text-align: center;">
 {% include figure.html path="assets/img/lagrangian/example_ineq_constraint.png" class="img-fluid rounded w-50 z-depth-1" %}
+<p align = "center">
 An example of optimization problem where the optimal solution is different for inequality constraints, compared to equality constraints. Made with &copy; Desmos.
+</p>
 </div>
 
 
@@ -97,7 +101,9 @@ The chart of this function would be:
 
 <div style="text-align: center;">
 {% include figure.html path="assets/img/lagrangian/lagrangian_simple_problem.png" class="img-fluid w-50 rounded z-depth-1" %}
+<p align = "center">
 An example of optimization problem where we have a convex objective and one inequality constraint. Made with &copy; Desmos.
+</p>
 </div>
 
 
@@ -105,7 +111,9 @@ The optimum that we're interested in is at $$x = -2$$. Now, let us look at the d
 
 <div style="text-align: center;">
 {% include figure.html path="assets/img/lagrangian/lagrangian_multiple_lambda.png" class="img-fluid w-50 rounded z-depth-1" %}
+<p align = "center">
 The same problem from before, where we see the dual for multiple values of lambda. Made with &copy; Desmos.
+</p>
 </div>
 
 As one can see, the more we increase $$\lambda$$, the more the unconstrained minimum of $$f$$ (at $$x=0$$) is penalized. That is the reason why the constrained minimum ($$g(\lambda)$$) has to move to the left of the unconstrained minimum, so that it is closer to the constraint line. At the same time, the more we move to the left (up to a certain point as we will see), the larger the value of the constrained minimum (than the previous constrained minimum) is. This is due to the fact that we are in a regime where the first terms of $$g$$ is dominant ($$f(x)$$) and moving even slightly to the left entails moving farther from the unconstrained minimum of $$f$$ and thus having higher values for $$f(x)$$.

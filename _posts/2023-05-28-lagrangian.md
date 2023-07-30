@@ -28,11 +28,11 @@ Let us assume we want to optimize $$f(x)$$ without any constraints. To do this, 
 <div style="text-align: center;">
 {% include figure.html path="assets/img/lagrangian/min_f_not_constrained_min.png" class="img-fluid w-50 rounded z-depth-1" %}
 <p align = "center">
-An example where the minimum of an objective function is not identical to the constrained minimum. Made with &copy; Desmos.
+An example where the minimum of an objective function is not identical to the constrained minimum (for simplification, the contour plot of a higher dimensional function onto a 2D space is shown). Made with &copy; Desmos.
 </p>
 </div>
 
-As we can see in the picture from above, the constrained minimum does not coincide with the minimum of $$f$$ and it is actually materialized at $$x_{min} = (-0.63, 0.38)$$. This is a bit to the left of the minimum of $$f$$. And, more importantly, $$\nabla f(x_{min})$$ is not $$0$$. To find this type of points analytically, Lagrange figured out that, instead of looking at where the gradient is 0, one should look instead at where the gradients of the constraint function and the objective function are parallel. This intuition is very revealing, due to the fact that the set of points among which we're searching our minimum must be the set of points on the constraint line. If we take a certain point on a line and there exists another point that leads to a better minimum on the same line, then the gradient of $$f$$ must point towards it. Therefore, it cannot be perpendicular on the tangent line to the curve at this point. Meanwhile, the gradient of the constraint function is always perpendicular on the line (one can also visualize it as the normal vector of the line). Similarly, if there is no other point better than the current point, then the gradient of $$f$$ must be perpendicular on the tangent (there is no better minimum on the constraint line, but there is one potentially outside of it - however, we are not interested in it). But since this point is on the constraint line, the gradient of $$g$$ (the constraint function) must also be perpendicular on the constraint line (and on the tangent, by extension). Therefore, by ensuring that the two gradients are parallel, we are sure that there cannot be a more optimal point than this. This can be visualized as follows:
+As we can see in the picture from above, the constrained minimum does not coincide with the minimum of $$f$$ and it is actually materialized at a point towards the upper-left side of the minimum of $$f$$. And, more importantly, $$\nabla f(x_{min})$$ is not $$0$$. To find this type of points analytically, Lagrange figured out that, instead of looking at where the gradient is 0, one should look instead at where the gradients of the constraint function and the objective function are parallel. This intuition is very revealing, due to the fact that the set of points among which we're searching our minimum must be the set of points on the constraint line. If we take a certain point on a line and there exists another point that leads to a better minimum on the same line, then the gradient of $$f$$ must point towards it. Therefore, it cannot be perpendicular on the tangent line to the curve at this point. Meanwhile, the gradient of the constraint function is always perpendicular on the line (one can also visualize it as the normal vector of the line). Similarly, if there is no other point better than the current point, then the gradient of $$f$$ must be perpendicular on the tangent (there is no better minimum on the constraint line, but there is one potentially outside of it - however, we are not interested in it). But since this point is on the constraint line, the gradient of $$g$$ (the constraint function) must also be perpendicular on the constraint line (and on the tangent, by extension). Therefore, by ensuring that the two gradients are parallel, we are sure that there cannot be a more optimal point than this. This can be visualized as follows:
 
 <div style="text-align: center;">
 {% include figure.html path="assets/img/lagrangian/LagrangeMultipliers2D.png" class="img-fluid rounded z-depth-1 w-50" %}
@@ -53,17 +53,17 @@ $$\lambda$$ is a scalar that ensure that the vector gradients have the same dire
 
 # The Lagrangian
 
-Below we'll provide a justification and an intuition for the formulation of the Lagrangian.
+Problems in practice can be even more complex than what we've seen before. A natural extension of the method above that makes use of the Lagrangian will be introduced and justified.
 
 ## Justification
 
-Problems in practice can be even more complex than this. In particular, one can find optimization problems, for which the contraint functions can be inequalities. For these situations, an extension of the method would be required. To understand why, let us have a look at the following example. Assume we have an objective function $$f(x)=x^2$$ with one constraint $$2 \cdot x \leq 1$$ (without loss of generalization we treat these constraints; constraints of the type $$c(x) \geq a$$ can be reformulated into $$c'(x) \leq -a$$, where $$c'(x)=-c(x)$$), which can be rephrased as follows:
+In practice one typically encounters optimization problems, for which the constraint functions can be inequalities. For these situations, an extension of the method would be required. To understand why, let us have a look at the example from above again. Assume we have the objective function $$f(x)=\frac{x^2}{2}+\frac{y^2}{2}$$ with one constraint $$2 \cdot x - y \leq 1$$ (without loss of generalization we consider only constraints of this type; constraints of the type $$c(x) \geq a$$ can be reformulated into $$c'(x) \leq -a$$, where $$c'(x)=-c(x)$$), which can be rephrased as follows:
 
-$$f(x) = x^2$$
+$$f(x)=\frac{x^2}{2}+\frac{y^2}{2}$$
 
 $$g(x) \leq 0$$
 
-In the equations, I have rewritten the constraint as $$g(x) = 2 \cdot x - 1$$. Let us have a look at the graph of these functions.
+In the equations from above, I have rewritten the constraint as $$g(x) = 2 \cdot x - y - 1$$. Let us have a look at the graph of these functions.
 
 <div style="text-align: center;">
 {% include figure.html path="assets/img/lagrangian/example_ineq_constraint.png" class="img-fluid rounded w-50 z-depth-1" %}

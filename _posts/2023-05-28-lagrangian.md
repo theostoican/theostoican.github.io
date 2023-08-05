@@ -91,7 +91,7 @@ Analytically, this can be phrased as finding $$\min_{x} f(x) + \lambda g(x)$$ fo
 
 $$\max_{\lambda} \min_{x} L(x, \lambda)$$
 
-This also means finding the saddle point of the Lagrangian. To see why this works, let us look at an example. To keep things simple, we will look at an optimization problem with one inequality constraint only (without loss of generality):
+This also means finding the saddle point of the Lagrangian. To see why this works, let us look at an example. To keep things simple, we will look at an optimization problem with one inequality constraint and one variable functions only (without loss of generality):
 
 $$\min_{x} f(x)$$
 
@@ -102,7 +102,7 @@ The chart of this function would be:
 <div style="text-align: center;">
 {% include figure.html path="assets/img/lagrangian/lagrangian_simple_problem.png" class="img-fluid w-50 rounded z-depth-1" %}
 <p align = "center">
-An example of optimization problem where we have a convex objective and one inequality constraint. Made with &copy; Desmos.
+An example of optimization problem where we have a convex objective and one inequality constraint. The constrained area is to the left of the line $$x = -2$$. Made with &copy; Desmos.
 </p>
 </div>
 
@@ -118,9 +118,9 @@ The same problem from before, where we see the dual for multiple values of lambd
 
 As one can see, the more we increase $$\lambda$$, the more the unconstrained minimum of $$f$$ (at $$x=0$$) is penalized. That is the reason why the constrained minimum ($$g(\lambda)$$) has to move to the left of the unconstrained minimum, so that it is closer to the constraint line. At the same time, the more we move to the left (up to a certain point as we will see), the larger the value of the constrained minimum (than the previous constrained minimum) is. This is due to the fact that we are in a regime where the first terms of $$g$$ is dominant ($$f(x)$$) and moving even slightly to the left entails moving farther from the unconstrained minimum of $$f$$ and thus having higher values for $$f(x)$$.
 
-However, by going left farther and farther and entering the area where the constraint is fulfilled (see $$\lambda=5$$ in the figure from above), we enter a regime where the second term of $$g$$ is dominant ($$\lambda g(x)$$). This term is negative, since the constraint is fulfilled. By increasing $$\lambda$$, we only increase the influence of this term and thus generating smaller and smaller constrained minima (up to $$-\inf$$), that are far from what we are interested in.
+However, by going farther and farther to the left and entering the area where the constraint is fulfilled (see $$\lambda=5$$ in the figure from above), we enter a regime where the second term of $$g$$ is dominant ($$\lambda g(x)$$). This term is negative, since the constraint is fulfilled. By increasing $$\lambda$$, we only increase the influence of this term and thus generating smaller and smaller constrained minima (up to $$-\inf$$), that are far from what we are interested in.
 
-The point we are actually interested in is at the intersection of the 2 regimes. $$\lambda$$ should be high enough such that all points to the right of the constraint line are sufficiently penalized and can not be optima anymore (the first term of $$g$$ is not overly influential), but small enough such that the points that are well into the constrained area are not overly appreciated (the second term of $$g$$ is not overly powerful). This point in which we are interested corresponds to $$\lambda=4$$ in the figure from above. It also corresponds to the point for which $$g(x)=0$$ (exactly on the edge of the constrained area). Finding this point corresponds to finding the maximum of $$g$$ and finding the maximum of $$g$$ entails solving $$\max_{\lambda}\min_{x} L(x, \lambda), thus the saddle point of the Lagrangian.
+The point we are actually interested in is at the intersection of the 2 regimes. $$\lambda$$ should be high enough such that all points to the right of the constraint line are sufficiently penalized and can not be optima anymore (the first term of $$g$$ is not overly influential), but small enough such that the points that are well into the constrained area are not overly appreciated (the second term of $$g$$ is not overly powerful). This point in which we are interested corresponds to $$\lambda=4$$ in the figure from above. It also corresponds to the point for which $$g(x)=0$$ (exactly on the edge of the constrained area). Finding this point corresponds to finding the maximum of $$g$$ and finding the maximum of $$g$$ entails solving $$\max_{\lambda}\min_{x} L(x, \lambda)$$, thus the saddle point of the Lagrangian.
 
 This method, like the one of the Lagrange multipliers for equality constraints, can naturally be generalized to multiple constraints.
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-07-30T16:28:55+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://theostoican.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://theostoican.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-08-05T11:18:19+00:00</updated><id>https://theostoican.github.io/feed.xml</id><title type="html">blank</title><subtitle>A blog for ML-dedicated material and personal thoughts. Disclaimer: Opinions are my own.
 </subtitle><entry><title type="html">PCA</title><link href="https://theostoican.github.io/blog/2023/pca/" rel="alternate" type="text/html" title="PCA" /><published>2023-04-06T00:00:00+00:00</published><updated>2023-04-06T00:00:00+00:00</updated><id>https://theostoican.github.io/blog/2023/pca</id><content type="html" xml:base="https://theostoican.github.io/blog/2023/pca/"><![CDATA[<h1 id="introduction">Introduction</h1>
 
 <p>In machine learning, working in high-dimensional spaces is often either computationally intractable or does not yield good practical results. Firstly, the curse of dimensionality (which helds that the more features/dimensions a data sample has, the more samples we need in order to accurately model the distribution of the data) compels us to find more data, thus making training and inference prohibitively expensive. Secondly, it is often the case that information in real-world data is embedded in only a few dimensions. Having more dimensions raises modeling issues by complicating the problem and leading to a lack of generalization. Thus, one may often want to perform <em>dimensionality reduction</em> before modeling, in order to capture the most essential features of the input data. Enter PCA.</p>
@@ -420,7 +420,7 @@ An example of optimization problem where the optimal solution is different for i
 
 \[\max_{\lambda} \min_{x} L(x, \lambda)\]
 
-<p>This also means finding the saddle point of the Lagrangian. To see why this works, let us look at an example. To keep things simple, we will look at an optimization problem with one inequality constraint only (without loss of generality):</p>
+<p>This also means finding the saddle point of the Lagrangian. To see why this works, let us look at an example. To keep things simple, we will look at an optimization problem with one inequality constraint and one variable functions only (without loss of generality):</p>
 
 \[\min_{x} f(x)\]
 
@@ -446,7 +446,7 @@ An example of optimization problem where the optimal solution is different for i
 </figure>
 
 <p align="center">
-An example of optimization problem where we have a convex objective and one inequality constraint. Made with &copy; Desmos.
+An example of optimization problem where we have a convex objective and one inequality constraint. The constrained area is to the left of the line $$x = -2$$. Made with &copy; Desmos.
 </p>
 </div>
 
@@ -476,9 +476,9 @@ The same problem from before, where we see the dual for multiple values of lambd
 
 <p>As one can see, the more we increase \(\lambda\), the more the unconstrained minimum of \(f\) (at \(x=0\)) is penalized. That is the reason why the constrained minimum (\(g(\lambda)\)) has to move to the left of the unconstrained minimum, so that it is closer to the constraint line. At the same time, the more we move to the left (up to a certain point as we will see), the larger the value of the constrained minimum (than the previous constrained minimum) is. This is due to the fact that we are in a regime where the first terms of \(g\) is dominant (\(f(x)\)) and moving even slightly to the left entails moving farther from the unconstrained minimum of \(f\) and thus having higher values for \(f(x)\).</p>
 
-<p>However, by going left farther and farther and entering the area where the constraint is fulfilled (see \(\lambda=5\) in the figure from above), we enter a regime where the second term of \(g\) is dominant (\(\lambda g(x)\)). This term is negative, since the constraint is fulfilled. By increasing \(\lambda\), we only increase the influence of this term and thus generating smaller and smaller constrained minima (up to \(-\inf\)), that are far from what we are interested in.</p>
+<p>However, by going farther and farther to the left and entering the area where the constraint is fulfilled (see \(\lambda=5\) in the figure from above), we enter a regime where the second term of \(g\) is dominant (\(\lambda g(x)\)). This term is negative, since the constraint is fulfilled. By increasing \(\lambda\), we only increase the influence of this term and thus generating smaller and smaller constrained minima (up to \(-\inf\)), that are far from what we are interested in.</p>
 
-<p>The point we are actually interested in is at the intersection of the 2 regimes. \(\lambda\) should be high enough such that all points to the right of the constraint line are sufficiently penalized and can not be optima anymore (the first term of \(g\) is not overly influential), but small enough such that the points that are well into the constrained area are not overly appreciated (the second term of \(g\) is not overly powerful). This point in which we are interested corresponds to \(\lambda=4\) in the figure from above. It also corresponds to the point for which \(g(x)=0\) (exactly on the edge of the constrained area). Finding this point corresponds to finding the maximum of \(g\) and finding the maximum of \(g\) entails solving $$\max_{\lambda}\min_{x} L(x, \lambda), thus the saddle point of the Lagrangian.</p>
+<p>The point we are actually interested in is at the intersection of the 2 regimes. \(\lambda\) should be high enough such that all points to the right of the constraint line are sufficiently penalized and can not be optima anymore (the first term of \(g\) is not overly influential), but small enough such that the points that are well into the constrained area are not overly appreciated (the second term of \(g\) is not overly powerful). This point in which we are interested corresponds to \(\lambda=4\) in the figure from above. It also corresponds to the point for which \(g(x)=0\) (exactly on the edge of the constrained area). Finding this point corresponds to finding the maximum of \(g\) and finding the maximum of \(g\) entails solving \(\max_{\lambda}\min_{x} L(x, \lambda)\), thus the saddle point of the Lagrangian.</p>
 
 <p>This method, like the one of the Lagrange multipliers for equality constraints, can naturally be generalized to multiple constraints.</p>
 

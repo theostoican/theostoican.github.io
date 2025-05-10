@@ -23,7 +23,7 @@ Let us discuss in detail these three approaches.
 
 # SFT
 
-Naturally, the first approach entails training a model to reproduce reasoning traces for a specific task token by token. This could mean 
+Naturally, the first approach entails training a model to reproduce reasoning traces for a specific task token by token. This is no different than standard supervised finetuning (SFT) for, say, a classification task. The only different is that now the model is trained to learn, token by token, the reasoning trace. 
 
 # RLHF
 

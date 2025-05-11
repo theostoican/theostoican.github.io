@@ -30,11 +30,11 @@ Let us discuss in detail these three approaches.
 
 # SFT
 
-Naturally, the first approach entails training a model to reproduce reasoning traces for a specific task token by token. This is no different than standard supervised finetuning (SFT) for, say, a classification task. The only different is that now the model is trained to learn, token by token, the reasoning trace. 
+Naturally, the first approach entails training a model to reproduce reasoning traces for a specific task token by token. This is no different than standard supervised finetuning (SFT) for, say, a classification task. The only different is that now the model is trained to learn, token by token, the reasoning trace.  This works reasonably well on tasks such as arithmetic problems on which an improvement over the final answer is desired.
 
 # RLHF
 
-As with Reinforcement Learning with Human Feedback for alignment to human preferences, this approach can also be used for reasoning.
+As with Reinforcement Learning with Human Feedback for alignment to human preferences, one can also use RLHF for reasoning alignment. This is an improvement over the approach from above, for empirically RL works better than SFT, when it comes to generalization capabilities.
 
 # Verifier-based search
 

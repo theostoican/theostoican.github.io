@@ -34,8 +34,29 @@ Naturally, the first approach entails training a model to reproduce reasoning tr
 
 # RLHF
 
-As with Reinforcement Learning with Human Feedback for alignment to human preferences, one can also use RLHF for reasoning alignment. This is an improvement over the approach from above, for empirically RL works better than SFT, when it comes to generalization capabilities.
+As with Reinforcement Learning with Human Feedback for alignment to human preferences, one can also use RLHF for reasoning alignment. This is an improvement over the approach from above, for empirically RL works better than SFT, when it comes to generalization capabilities. This stems from the fact that RL is not reinforcing faithful memorization of the reasoning traces during training and, rather, on the quality of the generated ones evaluated by a reward model.
 
-# Verifier-based search
+## End-to-End RL
 
-# Self-correction
+As a subcategory here, we could also mention ene-to-end RL. In principle, one could circumvent the reward model in the RL approach altogether. For various tasks, one could provide a reward directly based on the output, without having an additional reward model that is trained to rank reasoning traces based on human preferences. This is particularly true for tasks that can be objectively verified:
+- math
+- coding
+
+Solutions to math problems can be easily verified by extracting the answer, comparing it agains the ground truth, and generating a reward based on that. Solutions to coding problems can also be objectively by verified by compiling the code and running it against well-established tests, based on which a proper reward can be given.
+
+This has been the core idea behind works such as DeepSeek.
+
+# Inference-time compute
+
+Under this approach, one makes the transition from improving System 1 to improving System 2. This essentially scales up the inference time compute by using one of the following approaches:
+- best of N sampling
+- searching against a verifier model to find the optimal decoding sequence
+
+The first approach relies on sampling multiple times from the base model and selects the best option according to some metrics. The second approach relies on a verifier model that estimates what the next token is (by scoring the sequence up until the token) from a given set of tokens. In this way, the model is guided towards some optimal output according to the verifier model.
+
+References
+- distilling system 2 in 1  - https://arxiv.org/pdf/2407.06023
+- chain of thought generates reasoning - https://arxiv.org/pdf/2201.11903
+- RLHF for reasoning - https://arxiv.org/pdf/2403.04642#page=10.52
+- why RL is better than SFT - https://arxiv.org/pdf/2504.07912?
+- deepseek paper

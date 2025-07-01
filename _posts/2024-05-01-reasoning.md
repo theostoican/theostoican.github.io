@@ -32,6 +32,21 @@ Let us discuss in detail these three approaches.
 
 Naturally, the first approach entails training a model to reproduce reasoning traces for a specific task token by token. This is no different than standard supervised finetuning (SFT) for, say, a classification task. The only different is that now the model is trained to learn, token by token, the reasoning trace.  This works reasonably well on tasks such as arithmetic problems on which an improvement over the final answer is desired.
 
+<div style="text-align: center;">
+{% include figure.html path="assets/img/reasoning/SFT_reasoning_traces_issue (2).jpg" class="img-fluid w-50 rounded z-depth-1" %}
+<p align = "center">
+Training only on the final label yields inaccurate results at inference.
+</p>
+</div>
+
+<div style="text-align: center;">
+{% include figure.html path="assets/img/reasoning/SFT_reasoning_traces_sol (1).jpg" class="img-fluid w-50 rounded z-depth-1" %}
+<p align = "center">
+Training only on the reasoning trace and the final label yields accurate results at inference.
+</p>
+</div>
+
+
 # RLHF
 
 As with Reinforcement Learning with Human Feedback for alignment to human preferences, one can also use RLHF for reasoning alignment. This is an improvement over the approach from above, for empirically RL works better than SFT, when it comes to generalization capabilities. This stems from the fact that RL is not reinforcing faithful memorization of the reasoning traces during training and, rather, on the quality of the generated ones evaluated by a reward model.

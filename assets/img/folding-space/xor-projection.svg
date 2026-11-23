@@ -1,0 +1,68 @@
+<svg width="100%" viewBox="0 0 680 420" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Any linear projection of XOR puts reds at the extremes and blues in the middle</title>
+<desc>Top panel shows the four XOR points in the plane with a projection direction. Bottom panel shows the projected 1D values: red at both ends, blues in between. No threshold on the projected axis can separate the classes.</desc>
+<style>
+.th { font: 600 14px system-ui, sans-serif; fill: #333; }
+.ts { font: 12px system-ui, sans-serif; fill: #666; }
+</style>
+<defs>
+<marker id="proj-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+
+<text class="th" x="340" y="30" text-anchor="middle">Project the four points onto any line w·x</text>
+
+<g transform="translate(240,180)">
+  <line x1="-30" y1="0" x2="160" y2="0" stroke="#999" stroke-width="0.5" marker-end="url(#proj-arrow)"/>
+  <line x1="0" y1="30" x2="0" y2="-140" stroke="#999" stroke-width="0.5" marker-end="url(#proj-arrow)"/>
+  <text class="ts" x="166" y="4">x₁</text>
+  <text class="ts" x="8" y="-136">x₂</text>
+
+  <line x1="-30" y1="30" x2="150" y2="-150" stroke="#BA7517" stroke-width="1" stroke-dasharray="4 3" opacity="0.7"/>
+  <text class="ts" x="70" y="-55" fill="#854F0B">projection direction w</text>
+
+  <line x1="0" y1="0" x2="0" y2="0" stroke="#BA7517" stroke-width="0.5" opacity="0.4"/>
+  <line x1="100" y1="0" x2="50" y2="-50" stroke="#D85A30" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.5"/>
+  <line x1="0" y1="-100" x2="-50" y2="-50" stroke="#D85A30" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.5"/>
+  <line x1="100" y1="-100" x2="100" y2="-100" stroke="#D85A30" stroke-width="0.5" opacity="0.4"/>
+
+  <circle cx="0" cy="0" r="7" fill="#D85A30"/>
+  <text class="ts" x="-12" y="18" text-anchor="end" fill="#993C1D">(0,0)</text>
+  <circle cx="100" cy="0" r="7" fill="#378ADD"/>
+  <text class="ts" x="100" y="20" text-anchor="middle" fill="#185FA5">(1,0)</text>
+  <circle cx="0" cy="-100" r="7" fill="#378ADD"/>
+  <text class="ts" x="-12" y="-96" text-anchor="end" fill="#185FA5">(0,1)</text>
+  <circle cx="100" cy="-100" r="7" fill="#D85A30"/>
+  <text class="ts" x="114" y="-96" fill="#993C1D">(1,1)</text>
+</g>
+
+<text class="th" x="340" y="280" text-anchor="middle">Projected values on the number line</text>
+
+<g transform="translate(120,340)">
+  <line x1="0" y1="0" x2="440" y2="0" stroke="#999" stroke-width="0.5" marker-end="url(#proj-arrow)"/>
+  <text class="ts" x="446" y="4">w·x</text>
+
+  <line x1="0" y1="-6" x2="0" y2="6" stroke="#999" stroke-width="0.5"/>
+  <line x1="150" y1="-6" x2="150" y2="6" stroke="#999" stroke-width="0.5"/>
+  <line x1="290" y1="-6" x2="290" y2="6" stroke="#999" stroke-width="0.5"/>
+  <line x1="440" y1="-6" x2="440" y2="6" stroke="#999" stroke-width="0.5"/>
+
+  <text class="ts" x="0" y="22" text-anchor="middle">0</text>
+  <text class="ts" x="150" y="22" text-anchor="middle">w₁</text>
+  <text class="ts" x="290" y="22" text-anchor="middle">w₂</text>
+  <text class="ts" x="440" y="22" text-anchor="middle">w₁+w₂</text>
+
+  <circle cx="0" cy="-14" r="7" fill="#D85A30"/>
+  <text class="ts" x="0" y="-26" text-anchor="middle" fill="#993C1D">(0,0)</text>
+
+  <circle cx="150" cy="-14" r="7" fill="#378ADD"/>
+  <text class="ts" x="150" y="-26" text-anchor="middle" fill="#185FA5">(1,0)</text>
+
+  <circle cx="290" cy="-14" r="7" fill="#378ADD"/>
+  <text class="ts" x="290" y="-26" text-anchor="middle" fill="#185FA5">(0,1)</text>
+
+  <circle cx="440" cy="-14" r="7" fill="#D85A30"/>
+  <text class="ts" x="440" y="-26" text-anchor="middle" fill="#993C1D">(1,1)</text>
+</g>
+
+<text class="ts" x="340" y="400" text-anchor="middle" fill="#666">Reds at both ends, blues in the middle — no threshold can split them.</text>
+</svg>
